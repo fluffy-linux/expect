@@ -55,13 +55,10 @@
  *	  that the messages are coming from the shell somehow.
  *
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSlaveDbg.c,v 1.1.2.1.2.2 2001/12/17 07:15:05 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSlaveDbg.c,v 1.1.2.1.2.3 2002/02/10 06:25:50 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
-#include "tclInt.h"
-#include "tclPort.h"
-#include "expWin.h"
-#include "expWinSlave.h"
+#include "expWinInt.h"
 
 #include <imagehlp.h>
 #ifdef _MSC_VER
