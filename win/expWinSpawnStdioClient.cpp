@@ -22,14 +22,55 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSpawnStdioClient.cpp,v 1.1.2.6 2002/06/22 14:02:03 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSpawnStdioClient.cpp,v 1.1.2.7 2002/06/23 08:52:22 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
-#include "expWinSpawnClient.hpp"
+#include "expWinClientTransport.hpp"
 
 
-SpawnStdioClient::SpawnStdioClient(const char *name, CMclQueue<Message *> &_mQ)
+class ReadPipe : public CMclThreadHandler
+{
+public:
+    ReadPipe(CMclQueue<Message *> &_mQ)	: mQ(_mQ)
+    {
+	hStdIn = GetStdHandle(STD_INPUT_HANDLE);
+    }
+
+private:
+
+#   define READ_BUFFER_SIZE    128
+    virtual unsigned ThreadHandlerProc(void)
+    {
+	BOOL ok;
+	DWORD dwRead;
+	Message *msg;
+	BYTE *readBuf;
+
+    again:
+	readBuf = new BYTE [READ_BUFFER_SIZE];
+	ok = ReadFile(hStdIn, readBuf, READ_BUFFER_SIZE, &dwRead, 0L);
+	if (!ok || dwRead == 0) {
+	    CloseHandle(hStdIn);  // <- should this be here?
+	    delete [] readBuf;
+	    goto done;
+	}
+	msg = new Message;
+	msg->bytes = (CHAR *) readBuf;
+	msg->length = dwRead;
+	msg->type = Message::TYPE_INSTREAM;
+	mQ.Put(msg);
+	goto again;
+
+    done:
+	return 0;
+    }
+
+    CMclQueue<Message *> &mQ;
+    HANDLE hStdIn;
+};
+
+ClientStdio::ClientStdio(const char *name, CMclQueue<Message *> &_mQ)
     : mQ(_mQ)
 {
     hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -38,7 +79,7 @@ SpawnStdioClient::SpawnStdioClient(const char *name, CMclQueue<Message *> &_mQ)
     readThread = new CMclThread(reader);
 }
 
-SpawnStdioClient::~SpawnStdioClient()
+ClientStdio::~ClientStdio()
 {
     DWORD dwExit;
 
@@ -46,11 +87,10 @@ SpawnStdioClient::~SpawnStdioClient()
     if (dwExit == STILL_ACTIVE) {
 	readThread->Terminate(0x128);
     }
-    delete reader;
 }
 
 void
-SpawnStdioClient::Write(Message *what)
+ClientStdio::Write(Message *what)
 {
     DWORD dwWritten;
     HANDLE where;
@@ -64,38 +104,4 @@ SpawnStdioClient::Write(Message *what)
     }
     WriteFile(where, what->bytes, what->length, &dwWritten, 0L);
     delete what;
-}
-
-ReadPipe::ReadPipe(CMclQueue<Message *> &_mQ)
-    : mQ(_mQ)
-{
-    hStdIn = GetStdHandle(STD_INPUT_HANDLE);
-}
-
-#define READ_BUFFER_SIZE    128
-
-unsigned ReadPipe::ThreadHandlerProc(void)
-{
-    BOOL ok;
-    DWORD dwRead;
-    Message *msg;
-    BYTE *readBuf;
-
-again:
-    readBuf = new BYTE [READ_BUFFER_SIZE];
-    ok = ReadFile(hStdIn, readBuf, READ_BUFFER_SIZE, &dwRead, 0L);
-    if (!ok || dwRead == 0) {
-	CloseHandle(hStdIn);  // <- should this be here?
-	delete [] readBuf;
-	goto done;
-    }
-    msg = new Message;
-    msg->bytes = (CHAR *) readBuf;
-    msg->length = dwRead;
-    msg->type = Message::TYPE_INSTREAM;
-    mQ.Put(msg);
-    goto again;
-
-done:
-    return 0;
 }
