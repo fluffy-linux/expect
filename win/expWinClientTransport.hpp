@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
  * expWinClientTransport.hpp --
  *
- *	Declares the ClientTransport classes.
+ *	Declares all the ClientTransport classes.
  *
  * ----------------------------------------------------------------------------
  *
@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinClientTransport.hpp,v 1.1.2.1 2002/06/23 08:21:12 davygrvy Exp $
+ * RCS: @(#) $Id: expWinClientTransport.hpp,v 1.1.2.2 2002/06/23 09:20:40 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -51,4 +51,18 @@ private:
     HANDLE hStdErr;
     ReadPipe *reader;
     CMclThreadAutoPtr readThread;
+};
+
+class ClientConio : public ClientTransport
+{
+public:
+    ClientConio(const char *name, CMclQueue<Message *> &_mQ);
+    ~ClientConio();
+    virtual void Write(Message *);
+private:
+    CMclQueue<Message *> &mQ;
+    HANDLE hConOut;
+    HANDLE hConIn;
+    HANDLE hOriginalConOut;
+    CMclThread *readThread;
 };
