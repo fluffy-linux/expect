@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinClientTransport.hpp,v 1.1.2.3 2002/06/25 08:40:50 davygrvy Exp $
+ * RCS: @(#) $Id: expWinClientTransport.hpp,v 1.1.2.4 2002/06/27 03:43:34 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -32,6 +32,7 @@
 class ClientTransport
 {
 public:
+    virtual ~ClientTransport() {};
     virtual void Write(Message *) = 0;
 };
 
@@ -62,8 +63,7 @@ public:
     virtual void Write(Message *);
 private:
     CMclQueue<Message *> &mQ;
-    HANDLE ConOut;
-    HANDLE oldBuffer;
+    HANDLE ConOut, ConIn, oldBuffer;
     ReadCon *reader;
     CMclEvent Stop;
     CMclThread *readThread;
