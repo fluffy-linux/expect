@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expPlatDecls.h,v 1.1.2.2 2001/11/07 10:06:30 davygrvy Exp $
+ * RCS: @(#) $Id: expPlatDecls.h,v 1.1.4.1 2002/02/10 02:58:53 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 

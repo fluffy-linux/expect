@@ -5,7 +5,7 @@
  *	of differences between systems.  It reads in platform specific
  *	portability files.
  *
- * RCS: @(#) $Id: expPort.h,v 1.1.2.1 2001/10/28 01:02:39 davygrvy Exp $
+ * RCS: @(#) $Id: expPort.h,v 1.1.4.1 2002/02/10 02:58:53 davygrvy Exp $
  */
 
 #ifndef _EXPPORT_H__
