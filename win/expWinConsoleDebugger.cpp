@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinConsoleDebugger.cpp,v 1.1.2.12 2002/03/15 07:41:45 davygrvy Exp $
+ * RCS: @(#) $Id: expWinConsoleDebugger.cpp,v 1.1.2.13 2002/03/15 07:51:56 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -172,7 +172,7 @@ ConsoleDebugger::ConsoleDebugger (int _argc, char * const *_argv, CMclQueue<Mess
     BreakPoints[2].dllName = 0L;
     BreakPoints[2].breakInfo = 0L;
 
-    MasterHConsole = CreateFile("CONOUT$", GENERIC_READ|GENERIC_WRITE,
+    hMasterConsole = CreateFile("CONOUT$", GENERIC_READ|GENERIC_WRITE,
 	    FILE_SHARE_READ|FILE_SHARE_WRITE, 0L, OPEN_EXISTING, 0, 0L);
 }
 

@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinConsoleDebugger.hpp,v 1.1.2.15 2002/03/15 07:41:45 davygrvy Exp $
+ * RCS: @(#) $Id: expWinConsoleDebugger.hpp,v 1.1.2.16 2002/03/15 07:51:56 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -224,7 +224,7 @@ private:
     // private vars
     //
     Process	*ProcessList;   // Top of linked list of Process instances.
-    HANDLE	MasterHConsole;	// Master console handle (us).
+    HANDLE	hMasterConsole;	// Master console handle (us).
     DWORD	MasterConsoleInputMode;// Current flags for the master console.
     COORD	ConsoleSize;    // Size of the console in the slave.
     COORD	CursorPosition; // Coordinates of the cursor in the slave.
