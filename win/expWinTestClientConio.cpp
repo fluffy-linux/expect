@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinTestClientConio.cpp,v 1.1.2.1 2002/06/27 04:37:51 davygrvy Exp $
+ * RCS: @(#) $Id: expWinTestClientConio.cpp,v 1.1.2.2 2002/06/28 01:26:57 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -119,7 +119,7 @@ private:
 };
 
 
-ClientConio::ClientConio(const char *name, CMclQueue<Message *> &_mQ)
+ClientConio::ClientConio(CMclQueue<Message *> &_mQ)
     : mQ(_mQ), Stop()
 {
     COORD Size = {80, 500};
