@@ -23,7 +23,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinInjectorMain.cpp,v 1.1.2.12 2002/06/23 09:26:03 davygrvy Exp $
+ * RCS: @(#) $Id: expWinInjectorMain.cpp,v 1.1.2.13 2002/06/25 08:40:50 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -48,8 +48,8 @@ private:
 
     virtual unsigned ThreadHandlerProc(void)
     {
-	CHAR	boxName[50];
-	DWORD	err, dwWritten;
+	CHAR boxName[50];
+	DWORD err, dwWritten;
 	INPUT_RECORD ir;
 
 	wsprintf(boxName, "ExpectInjector_pid%d", GetCurrentProcessId());
