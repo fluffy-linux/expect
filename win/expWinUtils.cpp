@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinUtils.cpp,v 1.1.2.7 2002/06/18 22:51:31 davygrvy Exp $
+ * RCS: @(#) $Id: expWinUtils.cpp,v 1.1.2.8 2002/07/03 02:50:05 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -332,7 +332,7 @@ char *GetSysMsg (DWORD id)
 {
     int chars;
 
-    chars = wsprintf(sysMsgSpace, "[%d] ", id);
+    chars = wsprintf(sysMsgSpace, "[%u] ", id);
 
     FormatMessage(
 	    FORMAT_MESSAGE_FROM_SYSTEM |
