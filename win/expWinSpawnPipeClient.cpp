@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSpawnPipeClient.cpp,v 1.1.2.2 2002/03/11 06:53:39 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSpawnPipeClient.cpp,v 1.1.2.3 2002/03/12 01:38:19 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -42,7 +42,7 @@ SpawnPipeClient::Write(Message &what)
     DWORD dwWritten;
     HANDLE where;
 
-    switch (what.mode) {
+    switch (what.type) {
     case Message::TYPE_NORMAL:
 	where = hStdOut;
     case Message::TYPE_ERROR:
