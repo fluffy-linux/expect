@@ -23,7 +23,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinMessage.cpp,v 1.1.2.2 2002/03/12 04:37:39 davygrvy Exp $
+ * RCS: @(#) $Id: expWinMessage.cpp,v 1.1.2.3 2002/03/12 07:09:36 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -33,10 +33,10 @@ Message::Message()
     : bytes(0L), length(0), type(TYPE_BLANK)
 {
 }
-
+/*
 Message::Message(Message &other)
 {
     type = other.type;
     bytes = other.bytes;
     length = other.length;
-}
+}*/
