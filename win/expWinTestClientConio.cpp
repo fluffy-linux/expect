@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- * expWinClientTransportConio.cpp --
+ * expWinTestClientConio.cpp --
  *
  *	Simple console I/O as our client.
  *
@@ -22,11 +22,11 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinClientTransportConio.cpp,v 1.1.2.3 2002/06/27 03:43:34 davygrvy Exp $
+ * RCS: @(#) $Id: expWinTestClientConio.cpp,v 1.1.2.1 2002/06/27 04:37:51 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
-#include "expWinClientTransport.hpp"
+#include "expWinTestClient.hpp"
 
 class ReadCon : public CMclThreadHandler
 {

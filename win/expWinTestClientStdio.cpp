@@ -1,5 +1,5 @@
 /* ----------------------------------------------------------------------------
- * expWinClientTransportStdio.cpp --
+ * expWinTestClientStdio.cpp --
  *
  *	Simple standard I/O as our client.
  *
@@ -22,11 +22,11 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinClientTransportStdio.cpp,v 1.1.2.1 2002/06/23 09:20:40 davygrvy Exp $
+ * RCS: @(#) $Id: expWinTestClientStdio.cpp,v 1.1.2.1 2002/06/27 04:37:51 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
-#include "expWinClientTransport.hpp"
+#include "expWinTestClient.hpp"
 
 
 class ReadPipe : public CMclThreadHandler
