@@ -16,6 +16,7 @@
  *	work by Gordon Chaffee <chaffee@bmrc.berkeley.edu> for the WinNT port.
  *
  * Copyright (c) 2001-2002 Telindustrie, LLC
+ * Copyright (c) 2003 ActiveState Corporation
  *	work by David Gravereaux <davygrvy@pobox.com> for any Win32 OS.
  *
  * ----------------------------------------------------------------------------
@@ -23,7 +24,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinPort.h,v 1.1.2.1.2.5 2002/03/08 23:33:13 davygrvy Exp $
+ * RCS: @(#) $Id: expWinPort.h,v 1.1.2.1.2.6 2003/08/26 20:46:52 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
