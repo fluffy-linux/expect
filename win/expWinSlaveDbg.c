@@ -55,7 +55,7 @@
  *	  that the messages are coming from the shell somehow.
  *
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSlaveDbg.c,v 1.1.2.1.2.1 2001/11/22 08:50:38 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSlaveDbg.c,v 1.1.2.1.2.2 2001/12/17 07:15:05 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 #include "tclInt.h"
@@ -527,7 +527,7 @@ ExpSlaveDebugThread(LPVOID lparg)
 
     /* Make sure the master does not ignore Ctrl-C */
     SetConsoleCtrlHandler(NULL, FALSE);
-    arg->result = ExpCreateProcess(
+    arg->result = ExpWinCreateProcess(
 	    arg->argc,
 	    arg->argv,
 	    arg->slaveStdin,
