@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: winDllMain.c,v 1.1.2.4 2002/02/10 12:03:30 davygrvy Exp $
+ * RCS: @(#) $Id: winDllMain.c,v 1.1.2.5 2002/02/16 03:17:00 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -54,7 +54,7 @@
 
 
 /* public global */
-HMODULE expDllInstance;
+HMODULE expDllInstance = NULL;
 
 #ifndef STATIC_BUILD
 BOOL WINAPI
