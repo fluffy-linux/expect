@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSlaveMain.cpp,v 1.1.4.18 2002/06/18 22:51:31 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSlaveMain.cpp,v 1.1.4.19 2002/06/22 02:50:09 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -164,6 +164,7 @@ DoEvents(SpawnClientTransport *transport, SlaveTrap *slaveCtrl,
     while (mQ.Get(msg, INFINITE)) {
 	switch (msg->type) {
 	case Message::TYPE_NORMAL:
+	case Message::TYPE_WARNING:
 	case Message::TYPE_ERROR:
 	    //  Send stuff back to the parent.
 	    //
