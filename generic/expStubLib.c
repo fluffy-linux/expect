@@ -10,7 +10,7 @@
  * See the file "license.terms" for information on usage and redistribution
  * of this file, and for a DISCLAIMER OF ALL WARRANTIES.
  *
- * RCS: $Id: expStubLib.c,v 1.1.2.1 2002/02/10 08:35:44 davygrvy Exp $
+ * RCS: $Id: expStubLib.c,v 1.1.2.2 2002/02/10 08:40:55 davygrvy Exp $
  */
 
 /*
@@ -75,7 +75,7 @@ Exp_InitStubs (interp, version, exact)
 	return NULL;
     }
 
-    if (itclStubsPtr->hooks) {
+    if (expStubsPtr->hooks) {
 	expIntStubsPtr = expStubsPtr->hooks->expIntStubs;
 	expPlatStubsPtr = expStubsPtr->hooks->expPlatStubs;
 	expIntPlatStubsPtr = expStubsPtr->hooks->expIntPlatStubs;
