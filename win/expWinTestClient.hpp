@@ -22,7 +22,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinTestClient.hpp,v 1.1.2.2 2002/06/28 01:26:57 davygrvy Exp $
+ * RCS: @(#) $Id: expWinTestClient.hpp,v 1.1.2.3 2002/06/29 00:44:36 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -40,6 +40,7 @@ public:
 // Forward reference.
 class ReadPipe;
 class ReadCon;
+class ReadConWithSwitching;
 
 class ClientStdio : public TestClient
 {
@@ -78,4 +79,7 @@ public:
 private:
     CMclQueue<Message *> &mQ;
     HANDLE ConOut, ConIn, ConInteract, oldBuffer;
+    ReadConWithSwitching *reader;
+    CMclEvent Stop;
+    CMclThread *readThread;
 };
