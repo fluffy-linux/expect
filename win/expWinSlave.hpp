@@ -23,7 +23,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSlave.hpp,v 1.1.2.1 2001/11/09 01:17:40 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSlave.hpp,v 1.1.2.2 2001/11/15 07:25:19 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 #ifndef _EXPWINSLAVE_HPP
@@ -157,6 +157,19 @@ private:
 /* from expWinSpawnTransport.cpp */
 extern ExpSpawnTransportCli *ExpWinSpawnOpenTransport(const char *name);
 
+class ExpSlaveTrap {
+};
+class ExpSlaveTrapPipe : public ExpSlaveTrap {
+public:
+    ExpSlaveTrapPipe(int, char **);
+};
+class ExpSlaveTrapDbg : public ExpSlaveTrap {
+public:
+    ExpSlaveTrapDbg(int, char **);
+};
+
+extern ExpSlaveTrap *ExpWinSlaveOpenTrap(char *meth, int argc, char *argv[]);
+extern int ExpWinSlaveEvents(ExpSpawnTransportCli *transport, ExpSlaveTrap *trap);
 #endif /* __cplusplus */
 
 #endif /* _EXPWINSLAVE_HPP */

@@ -1,8 +1,7 @@
 /* ----------------------------------------------------------------------------
- * expWinSlaveTransport.cpp --
+ * expWinSlaveEvents.cpp --
  *
- *	Generic routines for opening the client IPC transport.  Has knowledge
- *	of all transport types used.
+ *	Processes all events.
  *
  * ----------------------------------------------------------------------------
  *
@@ -24,7 +23,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinSpawnTransport.cpp,v 1.1.2.1 2001/11/09 01:17:40 davygrvy Exp $
+ * RCS: @(#) $Id: expWinSlaveEvents.cpp,v 1.1.2.1 2001/11/15 07:25:19 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
@@ -32,28 +31,18 @@
 
 /*
  *----------------------------------------------------------------------
- *  ExpWinSpawnOpenTransport --
+ *  ExpWinSlaveEvents --
  *
- *	The factory method for creating the client IPC transport from
- *	the name asked of it.
+ *	Process all events for the slavedrv application.
  *
  *  Returns:
- *	a polymorphed ExpSpawnTransportCli pointer or NULL for an error.
+ *	an exit code.
  *
  *----------------------------------------------------------------------
  */
-ExpSpawnTransportCli *
-ExpWinSpawnOpenTransport(const char *name)
+
+int
+ExpWinSlaveEvents (ExpSpawnTransportCli *transport, ExpSlaveTrap *masterCtrl)
 {
-    /* If the first 2 chars are 'm' and 'b', then it's a mailbox. */
-    if (name[0] == 'm' && name[1] == 'b') {
-	return new ExpSpawnMailboxCli(name);
-    }
-    /* TODO: we can add more transports here when the time is right */
-    /*
-    else if (name[0] == 's' && name[1] == 'k') {
-	return new ExpSpawnSocketCli(name);
-    }
-    */
-    else return 0L;
+    return 0;
 }
