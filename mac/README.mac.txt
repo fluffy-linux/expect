@@ -1,0 +1,3 @@
+/* RCS: @(#) $Id: README.mac.txt,v 1.1.2.1 2001/09/13 03:43:30 davygrvy Exp $ */
+
+Nothing here...
