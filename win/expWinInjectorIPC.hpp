@@ -1,8 +1,9 @@
 /* ----------------------------------------------------------------------------
- * expWinInjectorMain.cpp --
+ * expWinInjectorIPC.hpp --
  *
- *	Console event injector DLL that's loaded into the slave's address space
- *	used by the ConsoleDebugger class for "writing" to the slave.
+ *	CMclMailbox values saved to a common include file to avoid
+ *	differences in the constructor calls on either end of the IPC
+ *	connection phase.
  *
  * ----------------------------------------------------------------------------
  *
@@ -23,7 +24,7 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinInjectorIPC.hpp,v 1.1.2.1 2002/06/27 22:49:21 davygrvy Exp $
+ * RCS: @(#) $Id: expWinInjectorIPC.hpp,v 1.1.2.2 2002/06/28 02:00:56 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
