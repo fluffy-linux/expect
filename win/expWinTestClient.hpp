@@ -22,12 +22,12 @@
  *	    http://expect.sf.net/
  *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
  * ----------------------------------------------------------------------------
- * RCS: @(#) $Id: expWinTestClient.hpp,v 1.1.2.3 2002/06/29 00:44:36 davygrvy Exp $
+ * RCS: @(#) $Id: expWinTestClient.hpp,v 1.1.2.4 2003/08/25 23:17:49 davygrvy Exp $
  * ----------------------------------------------------------------------------
  */
 
 #include "expWinMessage.hpp"
-#include "Mcl/include/CMcl.h"
+#include "CMcl.h"
 
 class TestClient
 {
