@@ -15,15 +15,14 @@
 ; *	work by Gordon Chaffee <chaffee@bmrc.berkeley.edu> for the WinNT port.
 ; *
 ; * Copyright (c) 2001-2002 Telindustrie, LLC
-; *	work by David Gravereaux <davygrvy@pobox.com> for full Stubs complience
-; *	and any Win32 OS.
+; *	work by David Gravereaux <davygrvy@pobox.com> for any Win32 OS.
 ; *
 ; * ----------------------------------------------------------------------------
 ; * URLs:    http://expect.nist.gov/
 ; *	    http://expect.sf.net/
 ; *	    http://bmrc.berkeley.edu/people/chaffee/expectnt.html
 ; * ----------------------------------------------------------------------------
-; * RCS: @(#) $Id: slavedrv.mc,v 1.1.2.2 2002/03/08 23:51:32 davygrvy Exp $
+; * RCS: @(#) $Id: slavedrv.mc,v 1.1.2.3 2002/03/09 00:00:00 davygrvy Exp $
 ; * ----------------------------------------------------------------------------
 ; */
 
