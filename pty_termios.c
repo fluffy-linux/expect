@@ -105,6 +105,7 @@ with openpty which supports 4000 while ptmx supports 60. */
 
 void expDiagLog();
 void expDiagLogPtr();
+char *expErrnoMsg(int errorNo);
 
 #include <errno.h>
 /*extern char *sys_errlist[];*/
@@ -189,6 +190,7 @@ static char slave_name[MAXPTYNAMELEN];
 #endif /* HAVE_SCO_CLIST_PTYS */
 
 #ifdef HAVE_OPENPTY
+#include <pty.h>
 static char master_name[64];
 static char slave_name[64];
 #endif
@@ -204,7 +206,7 @@ char *name;		/* name of pty */
 {
 #define MAX_ARGLIST 10240
 	char buf[MAX_ARGLIST];	/* overkill is easier */
-	RETSIGTYPE (*old)();	/* save old sigalarm handler */
+	RETSIGTYPE (*old)(int);	/* save old sigalarm handler */
 	int pid;
 	
 	old = signal(SIGCHLD, SIG_DFL);
@@ -264,7 +266,7 @@ char *name;		/* name of pty */
 {
 #define MAX_ARGLIST 10240
 	char buf[MAX_ARGLIST];	/* overkill is easier */
-	RETSIGTYPE (*old)();	/* save old sigalarm handler */
+	RETSIGTYPE (*old)(int);	/* save old sigalarm handler */
 
 #ifdef STTY_READS_STDOUT
 	sprintf(buf,"%s %s > %s",STTY_BIN,s,name);

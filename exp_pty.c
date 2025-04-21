@@ -134,8 +134,8 @@ int timeout;
 	return(cc);
 }
 
-static RETSIGTYPE (*oldAlarmHandler)();
-static RETSIGTYPE (*oldHupHandler)();
+static RETSIGTYPE (*oldAlarmHandler)(int);
+static RETSIGTYPE (*oldHupHandler)(int);
 static time_t current_time;	/* time when testing began */
 
 /* if TRUE, begin testing, else end testing */

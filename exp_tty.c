@@ -572,7 +572,7 @@ Exp_SystemCmd(
     char **argv)
 {
 	int result = TCL_OK;
-	RETSIGTYPE (*old)();	/* save old sigalarm handler */
+	RETSIGTYPE (*old)(int);	/* save old sigalarm handler */
 #define MAX_ARGLIST 10240
 	int i;
 

@@ -49,14 +49,15 @@ char exp_version[] = PACKAGE_VERSION;
 #define NEED_TCL_MINOR		5
 
 char *exp_argv0 = "this program";	/* default program name */
-void (*exp_app_exit)() = 0;
-void (*exp_event_exit)() = 0;
+void (*exp_app_exit) _ANSI_ARGS_((Tcl_Interp *)) = 0;
+void (*exp_event_exit) _ANSI_ARGS_((Tcl_Interp *)) = 0;
 FILE *exp_cmdfile = 0;
 char *exp_cmdfilename = 0;
 int exp_cmdlinecmds = FALSE;
 int exp_interactive =  FALSE;
 int exp_buffer_command_input = FALSE;/* read in entire cmdfile at once */
 int exp_fgets();
+int exp_tty_cooked_echo(Tcl_Interp *interp, exp_tty *tty_old, int *was_raw, int *was_echo);
 
 Tcl_Interp *exp_interp;	/* for use by signal handlers who can't figure out */
 			/* the interpreter directly */
@@ -920,7 +921,6 @@ int sys_rc;
 	    char file[200];
 	    char *home;
 	    int fd;
-	    char *getenv();
 
 	    if ((NULL != (home = getenv("DOTDIR"))) ||
 		(NULL != (home = getenv("HOME")))) {

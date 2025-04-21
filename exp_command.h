@@ -222,8 +222,8 @@ EXTERN int		exp_trap_off _ANSI_ARGS_((char *));
 
 EXTERN void		exp_strftime(char *format, const struct tm *timeptr,Tcl_DString *dstring);
 
-#define exp_deleteProc (void (*)())0
-#define exp_deleteObjProc (void (*)())0
+#define exp_deleteProc NULL
+#define exp_deleteObjProc NULL
 
 EXTERN int expect_key;
 EXTERN int exp_configure_count;	/* # of times descriptors have been closed */
@@ -321,7 +321,7 @@ EXTERN void		exp_init_expect_cmds _ANSI_ARGS_((Tcl_Interp *));
 EXTERN void		exp_init_most_cmds _ANSI_ARGS_((Tcl_Interp *));
 EXTERN void		exp_init_trap_cmds _ANSI_ARGS_((Tcl_Interp *));
 EXTERN void		exp_init_interact_cmds _ANSI_ARGS_((Tcl_Interp *));
-EXTERN void		exp_init_tty_cmds();
+EXTERN void		exp_init_tty_cmds _ANSI_ARGS_((Tcl_Interp *));
 
 EXTERN ExpState *	expStateCheck _ANSI_ARGS_((Tcl_Interp *,ExpState *,int,int,char *));
 EXTERN ExpState *       expStateCurrent _ANSI_ARGS_((Tcl_Interp *,int,int,int));

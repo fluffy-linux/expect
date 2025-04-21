@@ -37,6 +37,14 @@ would appreciate credit if this program or parts of it are used.
 # endif
 #endif
 
+#ifdef HAVE_UNISTD_H
+# include <unistd.h>
+#endif
+
+//#ifdef HAVE_SYS_WAIT_H
+# include <sys/wait.h>
+//#endif
+
 #ifdef HAVE_SYS_FCNTL_H
 #  include <sys/fcntl.h>
 #else
@@ -1727,13 +1735,14 @@ int exp_logfile_all = FALSE;	/* if TRUE, write log of all interactions */
 int exp_loguser = TRUE;		/* if TRUE, user sees interactions on stdout */
 
 
-char *exp_printify();
+char *exp_printify(char *);
 int exp_getptymaster();
-int exp_getptyslave();
+int exp_getptyslave(int, int, CONST char *);
 
 #define sysreturn(x)	return(errno = x, -1)
 
 void exp_init_pty();
+void exp_init_tty();
 
 /*
    The following functions are linked from the Tcl library.  They
@@ -2253,6 +2262,7 @@ exp_spawnl TCL_VARARGS_DEF(char *,arg1)
 		argv[i] = va_arg(args,char *);
 		if (!argv[i]) break;
 	}
+	va_end(args);
 	i = exp_spawnv(argv[0],argv+1);
 	free((char *)argv);
 	return(i);
@@ -2726,6 +2736,7 @@ exp_expectl TCL_VARARGS_DEF(int,arg1)
 		/* Ultrix 4.2 compiler refuses enumerations comparison!? */
 		if ((int)type < 0 || (int)type >= (int)exp_bogus) {
 			fprintf(stderr,"bad type (set %d) in exp_expectl\n",i);
+			va_end(args);
 			sysreturn(EINVAL);
 		}
 
@@ -2791,6 +2802,7 @@ exp_fexpectl TCL_VARARGS_DEF(FILE *,arg1)
 		/* Ultrix 4.2 compiler refuses enumerations comparison!? */
 		if ((int)type < 0 || (int)type >= (int)exp_bogus) {
 			fprintf(stderr,"bad type (set %d) in exp_expectl\n",i);
+			va_end(args);
 			sysreturn(EINVAL);
 		}
 
