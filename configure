@@ -2604,7 +2604,8 @@ $as_echo "$as_me: WARNING: --with-tcl argument should refer to directory contain
 
 	    # check in a few common install locations
 	    if test x"${ac_cv_c_tclconfig}" = x ; then
-		for i in `ls -d ${libdir} 2>/dev/null` \
+		for i in `ls -d /sw/*/lib 2>/dev/null` \
+			`ls -d ${libdir} 2>/dev/null` \
 			`ls -d ${exec_prefix}/lib 2>/dev/null` \
 			`ls -d ${prefix}/lib 2>/dev/null` \
 			`ls -d /usr/local/lib 2>/dev/null` \
@@ -5049,6 +5050,7 @@ else
 
 	    eval "temp_includedir=${includedir}"
 	    list="$list \
+		`ls -d /sw/*/include            2>/dev/null` \
 		`ls -d ${temp_includedir}        2>/dev/null` \
 		`ls -d ${TCL_PREFIX}/include     2>/dev/null` \
 		`ls -d ${TCL_BIN_DIR}/../include 2>/dev/null`"
