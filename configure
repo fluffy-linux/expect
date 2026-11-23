@@ -8639,11 +8639,7 @@ fi
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking stty to use" >&5
 $as_echo_n "checking stty to use... " >&6; }
-if test -r /usr/local/bin/stty ; then
-  STTY_BIN=/usr/local/bin/stty
-else
-  STTY_BIN=/bin/stty
-fi
+STTY_BIN=stty
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $STTY_BIN" >&5
 $as_echo "$STTY_BIN" >&6; }
 
