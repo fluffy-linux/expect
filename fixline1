@@ -12,8 +12,8 @@
 #
 set line1 [gets stdin]
 if {"$line1" == "\#!/bin/sh"} {
-    # if multi-line hack already in place, do nothing
-    set header $line1
+    # if multi-line hack already in place, rewrite shebang for Fluffy
+    set header "#!/sw/bash/bin/bash"
 } else {
     # if single-line #!, switch to multi-line rewrite
 
