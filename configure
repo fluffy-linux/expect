@@ -2793,17 +2793,10 @@ $as_echo "$as_me: --prefix defaulting to /usr/local" >&6;}
 	    prefix=/usr/local
 	fi
     fi
-    if test "${exec_prefix}" = "NONE" -a x"${prefix_default}" = x"yes" \
-	-o x"${exec_prefix_default}" = x"yes" ; then
-	if test x"${TCL_EXEC_PREFIX}" != x; then
-	    { $as_echo "$as_me:${as_lineno-$LINENO}: --exec-prefix defaulting to TCL_EXEC_PREFIX ${TCL_EXEC_PREFIX}" >&5
-$as_echo "$as_me: --exec-prefix defaulting to TCL_EXEC_PREFIX ${TCL_EXEC_PREFIX}" >&6;}
-	    exec_prefix=${TCL_EXEC_PREFIX}
-	else
-	    { $as_echo "$as_me:${as_lineno-$LINENO}: --exec-prefix defaulting to ${prefix}" >&5
+    if test "${exec_prefix}" = "NONE" ; then
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: --exec-prefix defaulting to ${prefix}" >&5
 $as_echo "$as_me: --exec-prefix defaulting to ${prefix}" >&6;}
-	    exec_prefix=$prefix
-	fi
+	exec_prefix=$prefix
     fi
 
 
